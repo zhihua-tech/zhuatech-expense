@@ -9,6 +9,7 @@ Base URL：`http://localhost:8080/api`。除公开信息外均使用 HTTP Basic 
 | GET | `/workspace/tasks` | OPERATOR | 用户工作台数据 |
 | POST | `/admin/risk-assessment` | ADMIN | 运营风险评估 |
 | POST | `/admin/expense-compliance` | ADMIN | 费用单据合规预审与风险原因 |
+| POST | `/advanced/expense/policy-check` | OPERATOR | 逐行执行票据、限额、重复和用途政策 |
 
 风险评估请求包含 `backlog`、`delayedItems`、`criticalItems`、`capacityUtilization`、`dataCompleteness`，均为非负整数；百分比字段范围为 0–100。
 

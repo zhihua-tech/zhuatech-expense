@@ -1,0 +1,3 @@
+/* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
+package cn.zhuatech.expense.controller;import cn.zhuatech.expense.common.ApiResponse;import cn.zhuatech.expense.service.ExpensePolicyEngineService;import jakarta.validation.Valid;import org.springframework.web.bind.annotation.*;
+@RestController @RequestMapping("/api/advanced/expense") public class ExpensePolicyEngineController{private final ExpensePolicyEngineService service;public ExpensePolicyEngineController(ExpensePolicyEngineService service){this.service=service;}@PostMapping("/policy-check") public ApiResponse<ExpensePolicyEngineService.PolicyResult> check(@Valid @RequestBody ExpensePolicyEngineService.PolicyRequest request){return ApiResponse.ok(service.evaluate(request));}}
