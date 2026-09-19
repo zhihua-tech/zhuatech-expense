@@ -10,8 +10,14 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class ExpenseComplianceService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public ComplianceResult assess(ComplianceRequest request) {
         int riskScore = Math.max(0, 95 - request.receiptCoverage())
             + Math.min(30, request.policyOverage() * 2)
@@ -31,11 +37,17 @@ public class ExpenseComplianceService {
         return new ComplianceResult(request.amount(), riskScore, decision, reasons);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record ComplianceRequest(@NotNull @DecimalMin("0.01") BigDecimal amount,
         @NotNull @Min(0) @Max(100) Integer receiptCoverage,
         @NotNull @Min(0) @Max(100) Integer policyOverage,
         @NotNull @Min(0) @Max(100) Integer duplicateMatches,
         @NotNull Boolean costCenterValid, @NotNull Boolean preApprovalRequired,
         @NotNull Boolean preApproved) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record ComplianceResult(BigDecimal amount, int riskScore, String decision, List<String> reasons) {}
 }

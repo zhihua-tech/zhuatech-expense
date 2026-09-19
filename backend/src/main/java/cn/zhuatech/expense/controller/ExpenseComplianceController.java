@@ -6,11 +6,20 @@ import cn.zhuatech.expense.service.ExpenseComplianceService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @RestController
 @RequestMapping("/api/admin/expense-compliance")
 public class ExpenseComplianceController {
     private final ExpenseComplianceService service;
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public ExpenseComplianceController(ExpenseComplianceService service) { this.service = service; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @PostMapping
     ApiResponse<ExpenseComplianceService.ComplianceResult> assess(
         @Valid @RequestBody ExpenseComplianceService.ComplianceRequest request) {

@@ -1,4 +1,13 @@
 /* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
 package cn.zhuatech.expense.controller;
 import cn.zhuatech.expense.common.ApiResponse; import cn.zhuatech.expense.service.DuplicateClaimRiskService; import jakarta.validation.Valid; import org.springframework.web.bind.annotation.*;
-@RestController @RequestMapping("/api/expense/insights/duplicate-claim") public class DuplicateClaimRiskController {private final DuplicateClaimRiskService service;public DuplicateClaimRiskController(DuplicateClaimRiskService service){this.service=service;}@PostMapping ApiResponse<DuplicateClaimRiskService.Result> evaluate(@Valid @RequestBody DuplicateClaimRiskService.Request request){return ApiResponse.ok(service.evaluate(request));}}
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
+@RestController @RequestMapping("/api/expense/insights/duplicate-claim") public class DuplicateClaimRiskController {private final DuplicateClaimRiskService service;/**
+                                                                                                                                                                     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                                                                                                                                     */
+public DuplicateClaimRiskController(DuplicateClaimRiskService service){this.service=service;}/**
+                                                                                                                                                                                                                                                                  * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                                                                                                                                                                                                                                  */
+@PostMapping ApiResponse<DuplicateClaimRiskService.Result> evaluate(@Valid @RequestBody DuplicateClaimRiskService.Request request){return ApiResponse.ok(service.evaluate(request));}}

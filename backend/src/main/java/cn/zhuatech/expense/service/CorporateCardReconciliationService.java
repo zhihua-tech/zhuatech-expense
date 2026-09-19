@@ -7,8 +7,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class CorporateCardReconciliationService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Assessment assess(Request request) {
         List<String> blockers = new ArrayList<>();
         List<String> actions = new ArrayList<>();
@@ -33,6 +39,9 @@ public class CorporateCardReconciliationService {
                 List.copyOf(blockers), List.copyOf(actions));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String statementId, @Min(1) int transactionCount,
                           boolean statementImported, boolean cardholdersMapped,
                           boolean receiptsComplete, boolean merchantDataMatched,
@@ -42,7 +51,13 @@ public class CorporateCardReconciliationService {
                           boolean financeApproved, boolean makerCheckerSeparated, boolean auditReady,
                           boolean employeeRemindersReady, boolean anomalyReviewComplete,
                           boolean archivePackageReady) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Assessment(String statementId, int transactionCount, Decision decision,
                              List<String> blockers, List<String> actions) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public enum Decision { SETTLE, REVIEW, BLOCKED }
 }
