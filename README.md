@@ -2,6 +2,8 @@
 
 # ZhuaTech Expense
 
+[简体中文](README.md) | [English](README.en.md)
+
 **知华企业费用与报销管理平台 · 个人非商业社区源码版**
 
 [官网](https://www.zhuatech.cn/)　·　[产品能力](#产品能力)　·　[体验工程](#体验工程)　·　[许可与合作](#许可与合作)
