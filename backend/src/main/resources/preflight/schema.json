@@ -1,0 +1,89 @@
+{
+  "slug": "expense",
+  "title": "报销发票金额与分摊预检",
+  "fields": [
+    {
+      "key": "expense_no",
+      "label": "报销单",
+      "type": "ID",
+      "length": 200
+    },
+    {
+      "key": "invoice_no",
+      "label": "发票号",
+      "type": "ID",
+      "length": 200
+    },
+    {
+      "key": "invoice_amount",
+      "label": "发票金额",
+      "type": "DECIMAL",
+      "length": 200,
+      "scale": 2
+    },
+    {
+      "key": "claim_amount",
+      "label": "报销金额",
+      "type": "DECIMAL",
+      "length": 200,
+      "scale": 2
+    },
+    {
+      "key": "company_share",
+      "label": "企业承担",
+      "type": "DECIMAL",
+      "length": 200,
+      "scale": 2
+    },
+    {
+      "key": "personal_share",
+      "label": "个人承担",
+      "type": "DECIMAL",
+      "length": 200,
+      "scale": 2
+    }
+  ],
+  "unique": [
+    [
+      "expense_no"
+    ],
+    [
+      "invoice_no"
+    ]
+  ],
+  "rules": [
+    {
+      "op": "LE",
+      "args": [
+        "claim_amount",
+        "invoice_amount"
+      ],
+      "code": "CLAIM_EXCEEDS_INVOICE",
+      "message": "报销金额不能超过发票金额",
+      "bad": {
+        "claim_amount": "1001"
+      }
+    },
+    {
+      "op": "SUM_EQ",
+      "args": [
+        "company_share",
+        "personal_share",
+        "claim_amount"
+      ],
+      "code": "EXPENSE_ALLOCATION",
+      "message": "企业与个人承担之和必须等于报销金额",
+      "bad": {
+        "personal_share": "99"
+      }
+    }
+  ],
+  "sampleCsv": "expense_no,invoice_no,invoice_amount,claim_amount,company_share,personal_share\nEXP-001,INV-001,1000,800,700,100\n",
+  "limits": {
+    "rows": 500,
+    "bytes": 262144,
+    "columns": 32,
+    "cellCharacters": 4000
+  },
+  "scope": "Read-only batch validation; no persistence, reference-master lookup or full production certification."
+}
