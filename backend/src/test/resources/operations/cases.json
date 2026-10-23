@@ -1,0 +1,51 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "HOLD",
+      "netAllowance": "#50",
+      "combinedClaim": "#130",
+      "duplicateCoverage": "true"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "allowBoth": "YES"
+    },
+    "expected": {
+      "decision": "PASS"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "allowBoth": "YES",
+      "policyDailyCap": "129"
+    },
+    "expected": {
+      "decision": "HOLD",
+      "overDailyCap": "#1"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "providedMealPct": "100"
+    },
+    "expected": {
+      "decision": "PASS",
+      "netAllowance": "#0"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "mealReceipts": "0"
+    },
+    "expected": {
+      "decision": "PASS"
+    },
+    "error": false
+  }
+]
